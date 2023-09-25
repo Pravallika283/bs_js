@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+           border: 10px solid black;
+          margin: 50px;
+        }
+        h1{
+            color: blue;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="conatiner">
+    <h1>Registration Form</h1>
+    
+    <form id="registrationForm" onsubmit="return validateForm()">
+        <center>
+    <table border="1" width="100%">
+        <tr>
+            <td>First Name:</td>
+            <td><input type="text" name="first_name"></td>
+        </tr>
+         <tr>
+            <td>Last Name:</td>
+            <td><input type="text" name="last_name"></td>
+        </tr>
+         <tr>
+            <td>Email:</td>
+            <td><input type="email" name="email"></td>
+        </tr>
+         <tr>
+            <td>Password:</td>
+            <td><input type="password" name="password"></td>
+        </tr>
+         <tr>
+           <td>Re-enter Password:</td>
+           <td><input type="password" name="reenter_password"></td>
+        </tr>
+        <tr>
+           <td>Gender:</td>
+           <td>
+               <label><input type="radio" name="gender" value="male">Male</label>
+               <label><input type="radio" name="gender" value="female">Female</label>
+           </td>
+         </tr>
+          <tr>
+          <td>Age:</td>
+          <td><input type="number" name="age"></td>
+          </tr>
+          <tr>
+             <td>Phone Number:</td>
+             <td><input type="tel" name="phone"></td>
+          </tr>
+          <tr>
+          <td>Address:</td>
+          <td><textarea name="address" rows="4"></textarea></td>
+          </tr>
+          <tr>
+              <td>State:</td>
+             <td><input type="text" name="State"></td>
+          </tr>
+          <tr>
+            <td>
+                <label for="country">Country</label>
+                <select id="Country" name="Country" required>
+                    <option value="Choose your country" selected>Choose your country</option>
+                    <option value="India">India</option>
+                    <option value="Russia">Russia</option>
+                    <option value="DUBAI">DUBAI</option>
+                    <option value="USA">USA</option>
+                    <option value="Others">others</option>
+            </td>
+          </tr>
+          <tr>
+              <td>Languages Known</td>
+              <td><input type="checkbox" name="languages Known" id="English" value="English"></td>
+              <td><label for="English">English</label></td>
+              <td><input type="checkbox" name="languages known" id="Kannada" value="Kannada"></td>
+              <td><label for="Kannada">Kannada</label></td>
+              <td><input type="checkbox" name="languages known " id="Hindi" value="Hindi"></td>
+              <td><label for="Hindi">Hindi</label></td>
+              <td><input type="checkbox" name="language known" id="Telugu" value="Telugu"></td>
+              <td><label for="Telugu">Telugu</label></td>
+          </tr>
+    </table>
+          <table border="1" width="100%">
+          <tr>
+            <td><input type="checkbox" checked name="Hereby I declare all the given details are true" value="Hereby I declare all the given details are true">
+            <label for="Hereby I declare all the given details are true">Hereby I declare all the given details are true</label></td>
+          </tr>
+          
+                <td style="text-align: end;">Log in to <a href="https://ethnus.com/">ethnus</a> website</td>
+         
+            </table>
+        <center>
+            <input type="submit" value="Register">
+        </center>
+    </form></center>
+</div>
+
+
+    <script>
+         <script>
+
+
+        function validateForm() {
+            const firstName = document.forms["registrationForm"]["first_name"].value;
+            const lastName = document.forms["registrationForm"]["last_name"].value;
+            const email = document.forms["registrationForm"]["email"].value;
+            const password = document.forms["registrationForm"]["password"].value;
+            const reenterPassword = document.forms["registrationForm"]["reenter_password"].value;
+            const agreed = document.forms["registrationForm"]["Hereby I declare all the given details are true"].checked;
+
+            // Check if required fields are empty
+            if (firstName === "" || lastName === "" || email === "" || password === "" || reenterPassword === "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+
+            // Check if passwords match
+            if (password !== reenterPassword) {
+                alert("Passwords do not match");
+                return false;
+            }
+
+            // Check if the user agreed to the declaration
+            if (!agreed) {
+                alert("Please agree to the declaration");
+                return false;
+            }
+
+            // Form is valid
+            return true;
+        }
+        
+    </script>
+    </script>
+
+
+</body>
+</html>

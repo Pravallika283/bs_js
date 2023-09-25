@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Train Animation</title>
+  <style>
+    #container {
+      position: relative;
+    }
+    #image {
+      position: absolute;
+      left: 0;
+      width: 100px;
+      height: 50px;
+      transition: left 1s linear;
+    }
+    #image {
+      max-width: 100%;
+    }
+    #buttons {
+      position: relative;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7HNejUyQMs4GC3SyGOQT7qso56cV_PZpSxw&usqp=CAU" alt="Train Image">
+  </div>
+  <center>
+  <div id="buttons">
+    <h3 style="color: rgb(6, 6, 126);">Click the following buttons to handle animation</h3>
+    <button onclick="start()">Start</button>
+    <button onclick="stop()">Stop</button>
+  </div>
+</center>
+
+  <script>
+    let train = document.getElementById('image');
+let animation;
+let isMoving = false;
+
+function start() {
+  if (!isMoving) {
+    isMoving = true;
+    moveTrain();
+  }
+}
+
+function stop() {
+  isMoving = false;
+  cancelAnimationFrame(animation);
+}
+
+function moveTrain() {
+  if (isMoving) {
+    let currentPosition = parseFloat(image.style.left) || 0;
+    train.style.left = currentPosition + 2 + 'px';
+    if (currentPosition > window.innerWidth) {
+      image.style.left = '-100px';
+    }
+    animation = requestAnimationFrame(moveTrain);
+  }
+}
+
+  </script>
+</body>
+</html>

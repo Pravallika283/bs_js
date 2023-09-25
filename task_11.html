@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+    <form>
+        <label>Name</label>
+        <input type="text" onblur="name(5,12)"/><br><br>
+
+        <label>Email</label>
+        <input type="mail"/><br><br>
+
+        <label>Website</label>
+        <input type="url"/><br><br>
+
+        <label>Message</label>
+        <textarea type="Text"></textarea><br><br>
+
+        <button type="button">Submit</button>
+        
+    </form>
+</center>
+
+    <script>
+
+function firstfocus()
+  {
+  var uid = document.registration.userid.focus();
+  return true;
+  }
+
+
+    function name(mx,my)
+  {
+  var uid = document.registration.name;
+  var uid_len = uid.value.length;
+  if (uid_len == 0 || uid_len >= my || uid_len < mx)
+  {
+  alert("User Id should not be empty / length be between "+mx+" to "+my);
+  uid.focus();
+  return false;
+  }
+}
+
+</script>
+
+    
+</body>
+</html>
